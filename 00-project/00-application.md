@@ -1,13 +1,15 @@
-# Processing Mammographic Images for Tumor Detection
+---
+name: Sulehan
+neptun: CRX1CQ
+---
 
-Name: Sulehan  
-Neptun code: CRX1CQ
+# Processing Mammographic Images for Tumor Detection
 
 ## My interpretation of the brief
 
 I understand this project as an investigation of image-processing and machine-learning methods for detecting suspicious findings in mammograms.
 
-The analysis would consider grayscale intensity together with texture, shape, edges, and surrounding tissue. The precise task, such as image classification or lesion localisation, would be agreed with the supervisor according to the available annotations.
+The analysis would consider grayscale intensity together with texture, shape, edges, suspicious regions, and surrounding tissue. Image or lesion classification, lesion localisation, and distinguishing benign from malignant findings are different tasks. I would agree on a manageable task with my supervisor according to the available annotations.
 
 ## Why I am a good fit for this project
 
@@ -29,13 +31,13 @@ I would first review existing methods and inspect a suitable, appropriately lice
 
 Next, I would prepare a reproducible preprocessing pipeline and establish an image-only baseline using a suitable pretrained image model where practical.
 
-If sufficient metadata is available, I would compare the baseline with a model combining image features and structured patient information. Age could be represented numerically, while categorical variables would be encoded appropriately. Sex would be considered only if it varies meaningfully in the dataset.
+If sufficient metadata is available, I would compare the baseline with a model combining image features and structured patient information, using the same patient splits and evaluation conditions. Age could be represented numerically, while categorical variables would be encoded appropriately. Sex would be considered only if it varies meaningfully and sufficient samples are available.
 
-I would initially use a shared model and evaluate performance across sufficiently represented age and breast-density groups. Separate models for individual groups would require enough training data to support a meaningful comparison.
+I would initially use a shared model and evaluate performance across sufficiently represented age and breast-density groups. I would examine uneven data distributions and underrepresented groups, recognising that overly fine grouping can leave too few samples for reliable conclusions. Separate models for individual groups would require enough training data to support a meaningful comparison.
 
-All images belonging to the same patient would remain in the same training, validation, or test partition. Only information available at prediction time would be used as input.
+All images belonging to the same patient would remain in the same training, validation, or test partition. Only information available at prediction time would be used as input. Pathology results and other information revealing the target would be excluded from inputs. Any learned preprocessing would be fitted on training data only.
 
-Evaluation would include sensitivity, specificity, precision, and suitable ROC-AUC or PR-AUC measures, together with an analysis of false positives and false negatives. If localisation is included, additional metrics would be selected according to the annotations.
+Evaluation would include sensitivity, specificity, precision, and suitable ROC-AUC or PR-AUC measures alongside accuracy, together with an analysis of false positives and false negatives. If localisation is included, corresponding localisation metrics would be selected according to the annotations.
 
 ## Initial plan
 
@@ -52,9 +54,9 @@ Evaluation would include sensitivity, specificity, precision, and suitable ROC-A
 
 The core project would focus on mammographic image analysis. Patient information would be an optional extension supported by the available dataset.
 
-The main deliverables would be a documented research prototype, reproducible experiments, and a comparison of the selected approaches. Any improvement would need to be demonstrated on held-out data.
+The main deliverables would be a documented academic research prototype, reproducible experiments, and a comparison of the selected approaches. Any improvement would need to be demonstrated on held-out data. The prototype would not be intended for clinical diagnosis.
 
 The final scope would be agreed with the supervisor according to dataset access and available computing resources.
 
-GitHub repository:  
+GitHub repository:
 https://github.com/lehansu755-a11y/Mammogr-f-k-pek-feldolgoz-sa-daganat-detekt-l-si-c-lb-l
